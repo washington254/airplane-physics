@@ -7,26 +7,26 @@ import { TextureLoader } from "three/src/loaders/TextureLoader";
 
 export function Ground() {
   const [ref] = usePlane(
-    () => ({ 
-      type: 'Static', 
-      rotation: [-Math.PI / 2, 0, 0] }
-    ), 
-    useRef(null)
+    () => ({
+      type: "Static",
+      rotation: [-Math.PI / 2, 0, 0],
+    }),
+    useRef(null),
   );
 
   const gridMap = useLoader(
     TextureLoader,
-    process.env.PUBLIC_URL + "/textures/grid.png"
+    process.env.PUBLIC_URL + "/textures/grid.png",
   );
 
   const aoMap = useLoader(
     TextureLoader,
-    process.env.PUBLIC_URL + "/textures/ground-ao.png"
+    process.env.PUBLIC_URL + "/textures/ground-ao.png",
   );
 
   const alphaMap = useLoader(
     TextureLoader,
-    process.env.PUBLIC_URL + "/textures/alpha-map.png"
+    process.env.PUBLIC_URL + "/textures/alpha-map.png",
   );
 
   const meshRef = useRef(null);
@@ -70,8 +70,9 @@ export function Ground() {
         rotation-x={-Math.PI * 0.5}
         rotation-z={-0.079}
       >
-        <circleGeometry args={[6.12, 50]} />
-        <MeshReflectorMaterial
+        <planeGeometry args={[12, 12]} />
+        <meshBasicMaterial />
+        {/* <MeshReflectorMaterial
           aoMap={aoMap}
           alphaMap={alphaMap}
           transparent={true}
@@ -93,7 +94,7 @@ export function Ground() {
           depthToBlurRatioBias={0.25} // Adds a bias factor to the depthTexture before calculating the blur amount [bl
           debug={0}
           reflectorOffset={0.02} // Offsets the virtual camera that projects the reflection. Useful when the reflective
-        ></MeshReflectorMaterial>
+        ></MeshReflectorMaterial> */}
       </mesh>
     </>
   );
