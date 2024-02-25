@@ -7,19 +7,16 @@ import { Physics } from "@react-three/cannon";
 createRoot(document.getElementById("root")).render(
   <>
     <Canvas>
-      <Physics
-        broadphase="SAP"
-        gravity={[0, -2.6, 0]}
-      >
+      <Physics broadphase="SAP" gravity={[0, -2.6, 0]}>
         <Scene />
       </Physics>
     </Canvas>
 
     <div class="controls">
-      <p>press w a s d to move</p>
-      <p>press k to swap camera</p>
+      <p>press W A to move forward backward</p>
+      <p>press Q E to yaw left right</p>
       <p>press r to reset</p>
-      <p>press arrows for flips</p>
+      <p>press arrows up and down to inclinde and decline</p>
     </div>
-  </>
+  </>,
 );

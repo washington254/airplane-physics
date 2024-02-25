@@ -70,7 +70,7 @@ export function Ground() {
         rotation-x={-Math.PI * 0.5}
         rotation-z={-0.079}
       >
-        <planeGeometry args={[12, 12]} />
+        <planeGeometry args={[40, 40]} />
         <meshBasicMaterial />
         {/* <MeshReflectorMaterial
           aoMap={aoMap}
